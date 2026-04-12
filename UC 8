@@ -1,0 +1,70 @@
+import java.util.HashMap;
+
+public class OOPSBannerApp {
+
+    // HashMap to store character patterns
+    static HashMap<Character, String[]> patternMap = new HashMap<>();
+
+    public static void main(String[] args) {
+
+        // Add patterns
+        addPatterns();
+
+        // Print banner
+        printBanner("OOPS");
+    }
+
+    // Method to add all character patterns
+    public static void addPatterns() {
+
+        patternMap.put('O', new String[]{
+                " *** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+        });
+
+        patternMap.put('P', new String[]{
+                "**** ",
+                "*   *",
+                "**** ",
+                "*    ",
+                "*    "
+        });
+
+        patternMap.put('S', new String[]{
+                " ****",
+                "*    ",
+                " *** ",
+                "    *",
+                "**** "
+        });
+    }
+
+    // Method to print banner
+    public static void printBanner(String word) {
+
+        word = word.toUpperCase();
+
+        // Assume all characters have same height
+        int height = patternMap.get(word.charAt(0)).length;
+
+        for (int i = 0; i < height; i++) {
+
+            for (int j = 0; j < word.length(); j++) {
+
+                char ch = word.charAt(j);
+
+                String[] pattern = patternMap.get(ch);
+
+                if (pattern != null) {
+                    System.out.print(pattern[i] + "  ");
+                } else {
+                    System.out.print("????  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
