@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int getUserMove() {
+    int slot;
+    
+    cout << "Enter your move (1-9): ";
+    cin >> slot;
+
+    return slot;
+}
