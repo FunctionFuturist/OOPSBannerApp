@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstdlib>  // for rand()
+#include <ctime>    // for time()
+using namespace std;
+
+void toss(char &userSymbol, char &computerSymbol, bool &isUserTurn) {
+    srand(time(0)); // seed random generator
+
+    int result = rand() % 2; // 0 or 1
+
+    if (result == 0) {
+        isUserTurn = true;
+        userSymbol = 'X';
+        computerSymbol = 'O';
+        cout << "You won the toss! You play first.\n";
+    } else {
+        isUserTurn = false;
+        userSymbol = 'O';
+        computerSymbol = 'X';
+        cout << "Computer won the toss! It plays first.\n";
+    }
+
+    cout << "Your symbol: " << userSymbol << endl;
+    cout << "Computer symbol: " << computerSymbol << endl;
+}
